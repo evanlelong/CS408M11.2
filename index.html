@@ -13,7 +13,6 @@
 <body>
     <h1>Item Management System</h1>
     
-    <!-- Add Item Form -->
     <div class="add-item-form">
         <h2>Add Item</h2>
         <form id="item-form">
@@ -35,7 +34,6 @@
 
     <hr>
 
-    <!-- Items Table -->
     <div class="items-table">
         <h2>Items List</h2>
         <table id="items-table">
@@ -54,7 +52,6 @@
     </div>
 
     <script>
-        // Function to load all items
         function loadItems() {
             let xhr = new XMLHttpRequest();
             xhr.addEventListener("load", function () {
@@ -65,7 +62,6 @@
             xhr.send();
         }
 
-        // Function to display items in the table
         function displayItems(items) {
             const tbody = document.getElementById('items-body');
             tbody.innerHTML = '';
@@ -82,7 +78,6 @@
             });
         }
 
-        // Function to add a new item
         document.getElementById('item-form').onsubmit = function(e) {
             e.preventDefault();
             const name = document.getElementById('item-name').value;
@@ -91,8 +86,8 @@
 
             let xhr = new XMLHttpRequest();
             xhr.addEventListener("load", function() {
-                loadItems(); // Reload the items after adding
-                document.getElementById('item-form').reset(); // Reset the form
+                loadItems(); 
+                document.getElementById('item-form').reset(); 
             });
             xhr.open("PUT", "https://51ymz2ea4c.execute-api.us-east-2.amazonaws.com/items");
             xhr.setRequestHeader("Content-Type", "application/json");
